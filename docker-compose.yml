@@ -13,3 +13,8 @@ services:
     tty: true
     volumes:
       - ./api-test-report:/etc/newman/newman
+
+  sonarqube:
+    build:
+      context: .
+      dockerfile: Dockerfile_sonar

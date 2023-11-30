@@ -1,0 +1,13 @@
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /source
+# SonarQube
+RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y default-jdk
+RUN dotnet tool install --global dotnet-sonarscanner --version 5.15.0
+ENV PATH="${PATH}:/root/.dotnet/tools"
+RUN dotnet sonarscanner begin /k:"demo_api" /d:sonar.host.url="http://143.198.206.159:9000" /d:sonar.token="sqa_62bef56ee7b5ab06a814bb543dcec93f2d8c8943"
+
+COPY . .
+RUN dotnet restore
+RUN dotnet build -c release
+
+RUN dotnet sonarscanner end /d:sonar.token="sqa_62bef56ee7b5ab06a814bb543dcec93f2d8c8943"
