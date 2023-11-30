@@ -7,3 +7,9 @@ services:
     image: web:1.0
     ports:
       - "${API_PORT:-8080}:8080"
+  
+  api_test:
+    build: ./api-testing
+    tty: true
+    volumes:
+      - ./api-test-report:/etc/newman/newman
