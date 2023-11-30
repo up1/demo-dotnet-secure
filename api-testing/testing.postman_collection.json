@@ -73,7 +73,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:5084/weatherforecast",
+			"name": "API",
 			"event": [
 				{
 					"listen": "test",
@@ -219,13 +219,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://68.183.178.31:8080/weatherforecast",
+					"raw": "http://web:8080/weatherforecast",
 					"protocol": "http",
 					"host": [
-						"68",
-						"183",
-						"178",
-						"31"
+						"web"
 					],
 					"port": "8080",
 					"path": [
