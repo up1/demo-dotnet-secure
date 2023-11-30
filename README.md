@@ -22,3 +22,8 @@ $docker compose down
 Access URL in web browser
 * http://localhost:8080/weatherforecast
 * http://localhost:8080/swagger/index.html
+
+API testing
+```
+$docker compose up api_test --abort-on-container-exit --build
+```
