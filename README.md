@@ -2,6 +2,8 @@
 
 Build and Run
 ```
+$dotnet new webapi
+
 $docker compose build
 $docker compose up -d
 $docker compose ps
