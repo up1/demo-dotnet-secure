@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'node01'
+        label 'node02'
     }
 
     stages {
@@ -13,6 +13,11 @@ pipeline {
             steps {
                 sh 'docker compose down'
                 sh 'docker compose build'
+            }
+        }
+        stage('Scan code') {
+            steps {
+                sh 'docker compose up sonarqube --abort-on-container-exit --build'
             }
         }
         stage('Deploy') {

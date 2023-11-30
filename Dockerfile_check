@@ -1,0 +1,4 @@
+FROM owasp/dependency-check
+WORKDIR /app
+COPY . .
+CMD [ "--scan", "/app", "--out", " /check_report" ]

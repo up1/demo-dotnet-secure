@@ -18,3 +18,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile_sonar
+  
+  check:
+    build:
+      context: .
+      dockerfile: Dockerfile_check
+    volumes:
+      - ./check-report:/check_report
