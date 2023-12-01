@@ -38,8 +38,13 @@ pipeline {
         }
         stage('Load test') {
             steps {
-                echo 'TODO'
+                sh 'docker compose up jmeter --abort-on-container-exit --build'
             }
+        }
+    }
+    post {
+        always {
+            sh 'docker compose down'
         }
     }
 }
