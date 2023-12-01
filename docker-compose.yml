@@ -25,3 +25,12 @@ services:
       dockerfile: Dockerfile_check
     volumes:
       - ./check-report:/check_report
+
+  jmeter:
+    build:
+      context: ./jmeter
+      dockerfile: Dockerfile
+    volumes:
+      - ./jmeter/demo2.jmx:/test.jmx
+      - ./jmeter-report:/jmeter_report
+    command: -n -t /test.jmx -l /jmeter_report/report.jtl -e -o /jmeter_report
